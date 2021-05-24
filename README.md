@@ -9,4 +9,4 @@ Itens para pegar:
 3. Pedra
 
 para evitar:
-Raio
+- aio
