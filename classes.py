@@ -1,7 +1,7 @@
 from pygame.display import update
 import pygame
 from assets import *
-<<<<<<< HEAD
+from config import *
 
 class Mapa(pygame.sprite.Sprite):
     def __init__(self,img):
@@ -25,8 +25,7 @@ class Mapa(pygame.sprite.Sprite):
             self.rect.left = 0
         if self.rect.top > 0:
             self.rect.top = 0
-=======
-from config import *
+
 
 
 class Mapa(pygame.sprite.Sprite):
@@ -78,6 +77,5 @@ class player(pygame.sprite.Sprite):
         if self.rect.top > 0:
             self.rect.top = 0
 
->>>>>>> a8a616f4bb30c8988c7707f4283bd5916348807d
         if self.rect.bottom < y_size:
             self.rect.bottom = y_size
