@@ -18,7 +18,7 @@ mapa_mov = Mapa(mapa_img)
 player_mov = Player(player_img)
 
 all_sprites.add(mapa_mov)
-#all_sprites.add(player_mov)
+all_sprites.add(player_mov)
 
 
 while game == 1:
@@ -208,7 +208,7 @@ while game == 1:
       
         
     
-    print(player_mov.rect.left)
+    #print(player_mov.rect.bottom)
     #print(mapa_mov.rect.left)
     all_sprites.update()
     #print(player_mov.speedx)

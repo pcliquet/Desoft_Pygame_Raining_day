@@ -39,21 +39,21 @@ class Mapa(pygame.sprite.Sprite):
         self.speedy = 0 
 
     def update (self):
-    
-        self.rect.x += self.speedx 
-        self.rect.y += self.speedy
+        pass
+        # self.rect.x += self.speedx 
+        # self.rect.y += self.speedy
             
-        if self.rect.right < x_size:
-            self.rect.right = 1290
+        # if self.rect.right < x_size:
+        #     self.rect.right = 1290
         
-        if self.rect.left > 0:
-            self.rect.left = 0
+        # if self.rect.left > 0:
+        #     self.rect.left = 0
 
-        if self.rect.top > 0:
-            self.rect.top = 0
+        # if self.rect.top > 0:
+        #     self.rect.top = 0
 
-        if self.rect.bottom < y_size:
-            self.rect.bottom = y_size
+        # if self.rect.bottom < y_size:
+        #     self.rect.bottom = y_size
 
 class Player(pygame.sprite.Sprite):
     def __init__(self,img):
@@ -69,14 +69,14 @@ class Player(pygame.sprite.Sprite):
         self.rect.x += self.speedx 
         self.rect.y += self.speedy
             
-        if self.rect.right < x_size:
-            self.rect.right = 1290
+        if self.rect.right > 1365:
+            self.rect.right = 1365
         
-        if self.rect.left > 0:
-            self.rect.left = 0
+        if self.rect.left < -75:
+            self.rect.left = -75
 
-        if self.rect.top > 0:
-            self.rect.top = 0
+        if self.rect.top < -60:
+            self.rect.top = -60
 
-        if self.rect.bottom < y_size:
-            self.rect.bottom = y_size
+        if self.rect.bottom > 790:
+            self.rect.bottom = 790
