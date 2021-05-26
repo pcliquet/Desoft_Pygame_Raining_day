@@ -6,7 +6,7 @@ from config import *
 class Mapa(pygame.sprite.Sprite):
     def __init__(self,img):
         pygame.sprite.Sprite.__init__(self)
-        self.image = mapa_img
+        self.img = mapa_img
         self.rect = self.image.get_rect()
         self.rect.x = 0
         self.rect.y = -720
