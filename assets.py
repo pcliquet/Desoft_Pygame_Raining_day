@@ -5,7 +5,7 @@ from config import *
 
 map_dir = path.join(path.dirname(__file__), 'assets/img/map')
 mapa_img = pygame.image.load(path.join(map_dir, 'Map001.png'))
-mapa_img = pygame.transform.scale(mapa_img,(2580,1440))
+mapa_img = pygame.transform.scale(mapa_img,(4000,2000))
 
 #mapa_img = pygame.transform.scale(mapa_img,(100,100))
 

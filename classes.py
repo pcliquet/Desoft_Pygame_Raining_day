@@ -4,9 +4,9 @@ from assets import *
 from config import *
 
 class Mapa(pygame.sprite.Sprite):
-    def __init__(self,img):
+    def __init__(self,image):
         pygame.sprite.Sprite.__init__(self)
-        self.img = mapa_img
+        self.image = mapa_img
         self.rect = self.image.get_rect()
         self.rect.x = 0
         self.rect.y = -720
@@ -31,14 +31,15 @@ class Mapa(pygame.sprite.Sprite):
 class Mapa(pygame.sprite.Sprite):
     def __init__(self, img):
         pygame.sprite.Sprite.__init__(self)
-        self.img = mapa_img
-        self.rect = self.img.get_rect()
+        self.image = img
+        self.rect = self.image.get_rect()
         self.rect.x = -10
         self.rect.y = -720
         self.speedx = 0 
         self.speedy = 0 
 
     def update (self):
+    
         self.rect.x += self.speedx 
         self.rect.y += self.speedy
             
@@ -54,11 +55,11 @@ class Mapa(pygame.sprite.Sprite):
         if self.rect.bottom < y_size:
             self.rect.bottom = y_size
 
-class player(pygame.sprite.Sprite):
-    def __init__(self, img):
+class Player(pygame.sprite.Sprite):
+    def __init__(self,img):
         pygame.sprite.Sprite.__init__(self)
-        self.img = player_img
-        self.rect = self.img.get_rect()
+        self.image = img
+        self.rect = self.image.get_rect()
         self.rect.x = 520
         self.rect.y = 360
         self.speedx = 0
