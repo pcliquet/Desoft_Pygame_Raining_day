@@ -1,0 +1,32 @@
+from pygame.display import update
+import pygame
+from assets import *
+from config import *
+
+
+class Mapa(pygame.sprite.Sprite):
+    def __init__(self, img):
+        pygame.sprite.Sprite.__init__(self)
+        self.img = mapa_img
+        self.rect = self.img.get_rect()
+        self.rect.x = -10
+        self.rect.y = -720
+        self.speedx = 0 
+        self.speedy = 0 
+
+    def update (self):
+        self.rect.x += self.speedx 
+        self.rect.y += self.speedy
+            
+        if self.rect.right < x_size:
+            self.rect.right = 1290
+        
+        if self.rect.left > 0:
+            self.rect.left = 0
+
+        if self.rect.top > 0:
+            self.rect.top = 0
+
+        if self.rect.bottom < y_size:
+            self.rect.bottom = y_size
+
