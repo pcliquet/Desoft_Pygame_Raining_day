@@ -58,3 +58,32 @@ class Player(pygame.sprite.Sprite):
         if self.rect.bottom > 790:
             self.rect.bottom = 790
         
+class Raio(pygame.sprite.Sprite):
+    def __init__(self, img):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = img
+        self.rect = self.image.get_rect()
+        self.rect.x = random.randint(0, 4000)
+        self.rect.y = random.randint(0, 2000)
+
+class Madeira(pygame.sprite.Sprite):
+    def __init__(self, img):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = img
+        self.rect = self.image.get_rect()
+        self.rect.x = random.randint(0, 4000)
+        self.rect.y = random.randint(0, 2000)
+
+    def update(self):
+        pass
+
+class Pedra(pygame.sprite.Sprite):
+    def __init__(self, img):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = img
+        self.rect = self.image.get_rect()
+        self.rect.x = random.randint(0, 4000)
+        self.rect.y = random.randint(0, 2000)
+
+    def update(self):
+        pass 
