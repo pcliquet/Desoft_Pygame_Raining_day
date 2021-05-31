@@ -37,23 +37,23 @@ while game == 1:
     pos_m['x'] = mapa_mov.rect.right
     pos_m['y'] = mapa_mov.rect.top
 
-    if pos_p['x'] > 520 and pos_p['c_x'] == 0:
-        player_mov.speedx = 0
-        player_mov.rect.left = 520
-        pos_p['m_x'] = 0
-        pos_m['x'] == 3999
-    elif pos_p['x'] <= 520 and pos_p['c_x'] == 1:
-        player_mov.speedx = 0
-        player_mov.rect.left = 520
-        pos_p['m_x'] = 0
-        pos_m['x'] == 1291
-        pos_p['c_x'] == 0
-    elif pos_p['c_y'] == 1 and pos_p['y'] >= 560:
-        player_mov.speedy = 0
-        player_mov.rect.bottom = 560
-        pos_p['m_y'] = 0
-        pos_p['c_y'] = 0
-        pos_m['y'] = -1 
+    # if pos_p['x'] > 520 and pos_p['c_x'] == 0:
+    #     player_mov.speedx = 0
+    #     player_mov.rect.left = 520
+    #     pos_p['m_x'] = 0
+    #     pos_m['x'] == 3999
+    # elif pos_p['x'] <= 520 and pos_p['c_x'] == 1:
+    #     player_mov.speedx = 0
+    #     player_mov.rect.left = 520
+    #     pos_p['m_x'] = 0
+    #     pos_m['x'] == 1291
+    #     pos_p['c_x'] == 0
+    # elif pos_p['c_y'] == 1 and pos_p['y'] >= 560:
+    #     player_mov.speedy = 0
+    #     player_mov.rect.bottom = 560
+    #     pos_p['m_y'] = 0
+    #     pos_p['c_y'] = 0
+    #     pos_m['y'] = -1 
     
 
 
@@ -98,7 +98,7 @@ while game == 1:
             
         
 
-################################################################################################################        
+###############################################################################################################        
         if pos_m['y'] == 0 or pos_m['y'] == -1280:
             if pos_m['y'] == 0:
                 pos_p['c_y'] = 1
@@ -133,7 +133,7 @@ while game == 1:
                     mapa_mov.speedx += 10
                   
 ################################################################################################################        
-        else:
+        if pos_p['x'] == 520:
             if pos_p['c_x'] == 0 :
                 if event.type == pygame.KEYDOWN:    
                     if event.key == pygame.K_LEFT:
@@ -152,7 +152,7 @@ while game == 1:
                         mapa_mov.speedx += 10
                             
                         
-            if pos_p['c_y'] == 0:
+            if pos_p['c_y'] == 0: 
                 if event.type == pygame.KEYDOWN: 
                     if event.key == pygame.K_UP:
                         mapa_mov.speedy += 10
@@ -167,7 +167,7 @@ while game == 1:
                     if event.key == pygame.K_DOWN:
                         mapa_mov.speedy += 10
     #print(mapa_mov.speedx)
-    #print(pos_p)
+    print(pos_p)
     #print(p_p_x)
     #print(pm_x)
     all_sprites.update()

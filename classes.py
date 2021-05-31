@@ -4,6 +4,7 @@ from assets import *
 from config import *
 import random
 
+
 class Mapa(pygame.sprite.Sprite):
     def __init__(self, img):
         pygame.sprite.Sprite.__init__(self)
