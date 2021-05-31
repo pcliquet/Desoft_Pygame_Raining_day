@@ -110,3 +110,13 @@ class Gota(pygame.sprite.Sprite):
         self.rect.y += 100
         # if self.rect.top > 720:
         #     kill()
+
+#posição vai aparecer só quando o personagem terminar de pegar todos os objetos no mapa (implementar posição ainda)
+class casa(pygame.sprite.Sprite):
+    def __init__(self, img):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = img
+        self.rect = self.image.get_rect()
+    
+    def update(self):
+        pass
