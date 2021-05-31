@@ -1,3 +1,4 @@
+from os import kill
 from pygame.display import update
 import pygame
 from assets import *
@@ -86,3 +87,21 @@ class Pedra(pygame.sprite.Sprite):
     
     def update(self):
         pass
+
+
+
+class Gota(pygame.sprite.Sprite):
+    def __init__(self, img):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = img
+        self.rect = self.image.get_rect()
+        self.rect.x = random.randint(0, 1290)
+        self.rect.y = random.randint(0, 720)
+        self.speedx = random.randint(-1, 2)
+        self.speedy = random.randint(-1, 2)
+
+    def update(self):
+        self.rect.x += 100
+        self.rect.y += 100
+        # if self.rect.top > 720:
+        #     kill()
