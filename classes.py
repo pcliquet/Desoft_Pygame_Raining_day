@@ -57,7 +57,6 @@ class Player(pygame.sprite.Sprite):
 
         if self.rect.bottom > 790:
             self.rect.bottom = 790
-
 class Raio(pygame.sprite.Sprite):
     def __init__(self, img):
         pygame.sprite.Sprite.__init__(self)
@@ -87,4 +86,3 @@ class Pedra(pygame.sprite.Sprite):
     
     def update(self):
         pass
-    
