@@ -12,3 +12,9 @@ fase = 1
 
 #Fill
 PRETO = (255, 255, 255)
+
+
+p_p_x = 0
+p_p_y = 0
+p_m_x = 1
+p_m_y = 1
