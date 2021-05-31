@@ -98,3 +98,13 @@ class Poca(pygame.sprite.Sprite):
     
     def update(self):
         pass
+
+#posição vai aparecer só quando o personagem terminar de pegar todos os objetos no mapa (implementar posição ainda)
+class casa(pygame.sprite.Sprite):
+    def __init__(self, img):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = img
+        self.rect = self.image.get_rect()
+    
+    def update(self):
+        pass
