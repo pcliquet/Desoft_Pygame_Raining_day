@@ -1,4 +1,4 @@
-# Desoft_Pygame_Raining_day
+# Raining Day
 ## Integrantes do grupo
 - Pedro cliquet do Amaral
 - Gustavo Eliziario Stevenson de Oliveira

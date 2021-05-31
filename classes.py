@@ -86,3 +86,4 @@ class Pedra(pygame.sprite.Sprite):
     
     def update(self):
         pass
+    
