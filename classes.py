@@ -83,11 +83,15 @@ class Pedra(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = img
         self.rect = self.image.get_rect()
-        self.rect.x = random.randint(0, 4000)
-        self.rect.y = random.randint(0, 2000)
+        self.rect.x = 0
+        self.rect.y = 100
+        self.speedx = 0
+        self.speedy = 0
     
     def update(self):
-        pass
+        self.speedx += self.speedx
+        self.speedy += self.speedy
+     
 
 
 
