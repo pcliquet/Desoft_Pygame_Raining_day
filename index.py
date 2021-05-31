@@ -64,73 +64,73 @@ while game == 1:
 
        
 
-        # if pos_m['x'] == 4000 or pos_m['x'] == 1290:
-        #     if pos_m['x'] == 1290:
-        #         pos_p['c_x'] = 1
-        #     if pos_m['x'] == 4000:
-        #         pos_p['c_x'] = 0
-        #     if event.type == pygame.KEYDOWN:    
-        #         if event.key == pygame.K_LEFT:
-        #             player_mov.speedx -= 8
-        #             pos_p['m_x'] = 1
-        #         if event.key == pygame.K_RIGHT:
-        #             player_mov.speedx += 8
-        #             pos_p['m_x'] = 1
-        #         if event.key == pygame.K_UP:
-        #             mapa_mov.speedy += 10
+        if pos_m['x'] == 4000 or pos_m['x'] == 1290:
+            if pos_m['x'] == 1290:
+                pos_p['c_x'] = 1
+            if pos_m['x'] == 4000:
+                pos_p['c_x'] = 0
+            if event.type == pygame.KEYDOWN:    
+                if event.key == pygame.K_LEFT:
+                    player_mov.speedx -= 8
+                    pos_p['m_x'] = 1
+                if event.key == pygame.K_RIGHT:
+                    player_mov.speedx += 8
+                    pos_p['m_x'] = 1
+                if event.key == pygame.K_UP:
+                    mapa_mov.speedy += 10
 
-        #         if event.key == pygame.K_DOWN:
-        #             mapa_mov.speedy -= 10
+                if event.key == pygame.K_DOWN:
+                    mapa_mov.speedy -= 10
                 
 
-        #     if event.type == pygame.KEYUP: 
-        #         if event.key == pygame.K_LEFT and pos_p['m_x'] == 1:
-        #             player_mov.speedx += 8
-        #             pos_p['m_x'] = 0
-        #         if event.key == pygame.K_RIGHT and pos_p['m_x'] == 1:
-        #             player_mov.speedx -= 8 
-        #             pos_p['m_x'] = 0
-        #         if event.key == pygame.K_UP:
-        #                 mapa_mov.speedy -= 10
+            if event.type == pygame.KEYUP: 
+                if event.key == pygame.K_LEFT and pos_p['m_x'] == 1:
+                    player_mov.speedx += 8
+                    pos_p['m_x'] = 0
+                if event.key == pygame.K_RIGHT and pos_p['m_x'] == 1:
+                    player_mov.speedx -= 8 
+                    pos_p['m_x'] = 0
+                if event.key == pygame.K_UP:
+                        mapa_mov.speedy -= 10
 
-        #         if event.key == pygame.K_DOWN:
-        #             mapa_mov.speedy += 10
+                if event.key == pygame.K_DOWN:
+                    mapa_mov.speedy += 10
             
         
 
-################################################################################################################        
-        # if pos_m['y'] == 0 or pos_m['y'] == -1280:
-        #     if pos_m['y'] == 0:
-        #         pos_p['c_y'] = 1
-        #     if pos_m['y'] == -1280:
-        #         pos_p['c_y'] = 0
+###############################################################################################################        
+        if pos_m['y'] == 0 or pos_m['y'] == -1280:
+            if pos_m['y'] == 0:
+                pos_p['c_y'] = 1
+            if pos_m['y'] == -1280:
+                pos_p['c_y'] = 0
 
-        #     if event.type == pygame.KEYDOWN:    
-        #         if event.key == pygame.K_LEFT:
-        #             mapa_mov.speedx += 10
+            if event.type == pygame.KEYDOWN:    
+                if event.key == pygame.K_LEFT:
+                    mapa_mov.speedx += 10
                     
-        #         if event.key == pygame.K_RIGHT:
-        #             mapa_mov.speedx -= 10
+                if event.key == pygame.K_RIGHT:
+                    mapa_mov.speedx -= 10
                     
-        #         if event.key == pygame.K_UP:
-        #             player_mov.speedy -= 8
-        #             pos_p['m_y'] = 1
-        #         if event.key == pygame.K_DOWN:
-        #             player_mov.speedy += 8
-        #             pos_p['m_y'] = 1
+                if event.key == pygame.K_UP:
+                    player_mov.speedy -= 8
+                    pos_p['m_y'] = 1
+                if event.key == pygame.K_DOWN:
+                    player_mov.speedy += 8
+                    pos_p['m_y'] = 1
 
-        #     if event.type == pygame.KEYUP: 
-        #         if event.key == pygame.K_UP and pos_p['m_y'] == 1:
-        #             player_mov.speedy += 8
-        #             pos_p['m_y'] == 0
-        #         if event.key == pygame.K_DOWN and pos_p['m_y'] == 1:
-        #             player_mov.speedy -= 8 
-        #             pos_p['m_y'] == 0
-        #         if event.key == pygame.K_LEFT:
-        #             mapa_mov.speedx -= 10
+            if event.type == pygame.KEYUP: 
+                if event.key == pygame.K_UP and pos_p['m_y'] == 1:
+                    player_mov.speedy += 8
+                    pos_p['m_y'] == 0
+                if event.key == pygame.K_DOWN and pos_p['m_y'] == 1:
+                    player_mov.speedy -= 8 
+                    pos_p['m_y'] == 0
+                if event.key == pygame.K_LEFT:
+                    mapa_mov.speedx -= 10
                  
-        #         if event.key == pygame.K_RIGHT:
-        #             mapa_mov.speedx += 10
+                if event.key == pygame.K_RIGHT:
+                    mapa_mov.speedx += 10
                   
 ################################################################################################################        
         if pos_p['x'] == 520:
@@ -152,20 +152,20 @@ while game == 1:
                         mapa_mov.speedx += 10
                             
                         
-            # if pos_p['c_y'] == 0: 
-            #     if event.type == pygame.KEYDOWN: 
-            #         if event.key == pygame.K_UP:
-            #             mapa_mov.speedy += 10
+            if pos_p['c_y'] == 0: 
+                if event.type == pygame.KEYDOWN: 
+                    if event.key == pygame.K_UP:
+                        mapa_mov.speedy += 10
 
-            #         if event.key == pygame.K_DOWN:
-            #             mapa_mov.speedy -= 10
+                    if event.key == pygame.K_DOWN:
+                        mapa_mov.speedy -= 10
 
-            #     if event.type == pygame.KEYUP:
-            #         if event.key == pygame.K_UP:
-            #             mapa_mov.speedy -= 10
+                if event.type == pygame.KEYUP:
+                    if event.key == pygame.K_UP:
+                        mapa_mov.speedy -= 10
 
-            #         if event.key == pygame.K_DOWN:
-            #             mapa_mov.speedy += 10
+                    if event.key == pygame.K_DOWN:
+                        mapa_mov.speedy += 10
     #print(mapa_mov.speedx)
     print(pos_p)
     #print(p_p_x)
