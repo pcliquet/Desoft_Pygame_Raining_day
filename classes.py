@@ -17,7 +17,6 @@ class Mapa(pygame.sprite.Sprite):
         self.speedy = 0 
 
     def update (self):
-        
         self.rect.x += self.speedx 
         self.rect.y += self.speedy
             
@@ -33,6 +32,7 @@ class Mapa(pygame.sprite.Sprite):
         if self.rect.top < -2696:
             self.rect.top = -2696
 
+
 class Player(pygame.sprite.Sprite):
     def __init__(self,img):
         pygame.sprite.Sprite.__init__(self)
@@ -42,12 +42,11 @@ class Player(pygame.sprite.Sprite):
         self.rect.y = 360
         self.speedx = 0
         self.speedy = 0
-        self.mask = img
+        # self.mask = img
 
 
     def pick_up (self):
         pass
-
 
 class Raio(pygame.sprite.Sprite):
     def __init__(self, img):
@@ -68,8 +67,10 @@ class Madeira(pygame.sprite.Sprite):
         self.rect.y = random.randint(504, 3598)
         self.speedx = 0
         self.speedy = 0
-    def update(self):
-        pass
+
+    def update (self):
+        self.rect.x += self.speedx 
+        self.rect.y += self.speedy
 
 class Pedra(pygame.sprite.Sprite):
     def __init__(self, img):
@@ -82,12 +83,10 @@ class Pedra(pygame.sprite.Sprite):
         self.speedx = 0
         self.speedy = 0
     
-    def update(self):
-        self.speedx += self.speedx
-        self.speedy += self.speedy
-     
-
-
+    def update (self):
+        self.rect.x += self.speedx 
+        self.rect.y += self.speedy
+    
 
 class Gota(pygame.sprite.Sprite):
     def __init__(self, img):

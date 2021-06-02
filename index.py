@@ -76,9 +76,6 @@ while game == 1:
 
  
 
-
-
-
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game = 0
@@ -88,38 +85,72 @@ while game == 1:
         if event.type == pygame.KEYDOWN:    
             if event.key == pygame.K_LEFT:
                 mapa_mov.speedx += 13
+                for madeira in all_madeira:
+                    madeira.speedx += 13
+                for pedra in all_pedras:
+                    madeira.speedx += 13
 
             if event.key == pygame.K_RIGHT:
                 mapa_mov.speedx -= 13
+                for madeira in all_madeira:
+                    madeira.speedx -= 13
+                for pedra in all_pedras:
+                    madeira.speedx -= 13
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
                 mapa_mov.speedx -= 13
+                for madeira in all_madeira:
+                    madeira.speedx -= 13
+                for pedra in all_pedras:
+                    madeira.speedx -= 13
 
             if event.key == pygame.K_RIGHT:
                 mapa_mov.speedx += 13
+                for madeira in all_madeira:
+                    madeira.speedx += 13
+                for pedra in all_pedras:
+                    madeira.speedx += 13
     
-
         if event.type == pygame.KEYDOWN: 
             if event.key == pygame.K_UP:
                 mapa_mov.speedy += 13
+                for madeira in all_madeira:
+                    madeira.speedy += 13
+                for pedra in all_pedras:
+                    madeira.speedy += 13
 
             if event.key == pygame.K_DOWN:
                 mapa_mov.speedy -= 13
+                for madeira in all_madeira:
+                    madeira.speedy -= 13
+                for pedra in all_pedras:
+                    madeira.speedy -= 13
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_UP:
                 mapa_mov.speedy -= 13
+                for madeira in all_madeira:
+                    madeira.speedy -= 13
+                for pedra in all_pedras:
+                    madeira.speedy -= 13
     
             if event.key == pygame.K_DOWN:
                 mapa_mov.speedy += 13
-        
-       
+                for madeira in all_madeira:
+                    madeira.speedy += 13
+                for pedra in all_pedras:
+                    madeira.speedy += 13
+
+
     #pick = pygame.sprite.groupcollide(player_mov,all_madeira,all_pedras,True)
 
-    if madeira.colliderect() in player_mov.colliderect():
-        madeira.kill()
-
+    # if madeira.colliderect() in player_mov.colliderect():
+    #     madeira.kill()
+    
+    colisao = pygame.sprite.spritecollide(player_mov, all_madeira, False)
+    if len(colisao) > 0:
+        print('sim')
 ################################################################################################################        
         
     #print(mapa_mov.speedx)
@@ -127,16 +158,18 @@ while game == 1:
     #print(p_p_x)
     #print(pm_x)
     all_sprites.update()
+    all_madeira.update()
+    all_pedras.update()
     #print(mapa_mov.speedy)
     #print(mov_px, mov_py)
-    
+
     window.fill(PRETO)
     #window.blit(mar_img,(0,0))
     
     all_sprites.draw(window)
-    all_pedras.draw(mapa_img)
-    all_madeira.draw(mapa_img)
-    window.blit(visao_img,(0,0))
+    all_pedras.draw(window)
+    all_madeira.draw(window)
+    # window.blit(visao_img,(0,0))
     pygame.display.update()
-    
+
 pygame.quit()
