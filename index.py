@@ -3,35 +3,46 @@ from config import *
 from assets import *
 from classes import *
 pygame.init()
+pygame.font.init()
+
 
 #Display
 window = pygame.display.set_mode((x_size, y_size))
 pygame.display.set_caption('Raining Day')
 
 
-pos_p = {
-    'x':520,'y': 560, 'm_x': 0, 'm_y': 0, 'c_x': 0, 'c_y': 0
-}
-pos_m = {
-    'x':0,'y': 0
-}
-pos_pedra = {
-    'x':0,'y':0,'x_i':0,'y_i': 0 
-}
+clock = pygame.time.Clock()
+
+
+#cordenadas do mapa
+
 
 #conversor para imagem vetorizada
 mapa_img.convert()
 player_img.convert()
 gota_img.convert()
 madeira_img.convert()
-raio_img.convert()
+poça_img.convert()
+casa_img.convert()
+
+
+#escala na tela
+madeira_img_2 = pygame.transform.scale(madeira_img, (40, 40))
+pedra_img_2 = pygame.transform.scale(pedra_img, (40, 40))
 
 
 
+
+#criação de grupos de sprites
 all_sprites = pygame.sprite.Group()
 all_pedras = pygame.sprite.Group()
 all_madeira = pygame.sprite.Group()
-#################################
+all_poça = pygame.sprite.Group()
+all_gotas = pygame.sprite.Group()
+
+
+
+#Declarando objetos
 mapa_mov = Mapa(mapa_img)
 player_mov = Player(player_img)
 
@@ -42,134 +53,214 @@ all_sprites.add(player_mov)
 
 
 
-for m in range(30):
+
+#velocidades dos objetos
+velocidade = velocidade_i
+velocidade_x = velocidade_i
+velocidade_y = velocidade_i
+velocidade_items_x = velocidade_i
+velocidade_items_y = velocidade_i
+
+
+
+#Gerando madeiras no mapa
+for m in range(35):
     madeira = Madeira(madeira_img)
     all_madeira.add(madeira)
-for f in range(30):
+
+
+#Gerando pedras no mapa
+for f in range(35):
     pedrita = Pedra(pedra_img)
     all_pedras.add(pedrita)
 
 
+for p in range(2):
+    poça_mov = Poça(poça_img)
+    all_poça.add(poça_mov)
+#Chuva
+
 
 while game == 1:
 
-    for i in range(20): 
+    for i in range(10): 
         gota_c = Gota(gota_img)
-        all_sprites.add(gota_c)
-
-
-    # pedrita.rect.y = mapa_mov.speedy
-    # pedrita.rect.x = mapa_mov.speedx
-
-    pos_p['x'] = player_mov.rect.left
-    pos_p['y'] = player_mov.rect.bottom
-
-    #Condições iniciais
-    pos_m['x'] = mapa_mov.rect.left
-    pos_m['y'] = mapa_mov.rect.bottom
-
+        all_gotas.add(gota_c)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game = 0
 
         #[Movimenta o mapa]
+        if event.type == pygame.KEYDOWN:
+            velocidade_x = velocidade_i
 
-        if event.type == pygame.KEYDOWN:    
             if event.key == pygame.K_LEFT:
-                mapa_mov.speedx += 13
+                mapa_mov.speedx += velocidade_x
                 for madeira in all_madeira:
-                    madeira.speedx += 13
+                    madeira.speedx += velocidade_items_x
                 for pedra in all_pedras:
-                    pedra.speedx += 13
+                    pedra.speedx += velocidade_items_x
+                for poça in all_poça:
+                    poça.speedx += velocidade_items_x
 
             if event.key == pygame.K_RIGHT:
-                mapa_mov.speedx -= 13
+                mapa_mov.speedx -= velocidade_x
                 for madeira in all_madeira:
-                    madeira.speedx -= 13
+                    madeira.speedx -= velocidade_items_x
                 for pedra in all_pedras:
-                    pedra.speedx -= 13
+                    pedra.speedx -= velocidade_items_x
+                for poça in all_poça:
+                    poça.speedx -= velocidade_items_x
 
         if event.type == pygame.KEYUP:
+            
             if event.key == pygame.K_LEFT:
-                mapa_mov.speedx -= 13
+                mapa_mov.speedx -= velocidade_x
                 for madeira in all_madeira:
-                    madeira.speedx -= 13
+                    madeira.speedx -= velocidade_items_x
                 for pedra in all_pedras:
-                    pedra.speedx -= 13
+                    pedra.speedx -= velocidade_items_x
+                for poça in all_poça:
+                    poça.speedx -= velocidade_items_x
 
             if event.key == pygame.K_RIGHT:
-                mapa_mov.speedx += 13
+                mapa_mov.speedx += velocidade_x
                 for madeira in all_madeira:
-                    madeira.speedx += 13
+                    madeira.speedx += velocidade_items_x
                 for pedra in all_pedras:
-                    pedra.speedx += 13
-    
+                    pedra.speedx += velocidade_items_x
+                for poça in all_poça:
+                    poça.speedx += velocidade_items_x
+
+
         if event.type == pygame.KEYDOWN: 
+            velocidade_y = velocidade_i
+         
             if event.key == pygame.K_UP:
-                mapa_mov.speedy += 13
+                
+                mapa_mov.speedy += velocidade_y
+
                 for madeira in all_madeira:
-                    madeira.speedy += 13
+                    madeira.speedy += velocidade_items_y
                 for pedra in all_pedras:
-                    pedra.speedy += 13
+                    pedra.speedy += velocidade_items_y
+                for poça in all_poça:
+                    poça.speedy += velocidade_items_y
 
             if event.key == pygame.K_DOWN:
-                mapa_mov.speedy -= 13
+                
+                mapa_mov.speedy -= velocidade_y
+
                 for madeira in all_madeira:
-                    madeira.speedy -= 13
+                    madeira.speedy -= velocidade_items_y
                 for pedra in all_pedras:
-                    pedra.speedy -= 13
+                    pedra.speedy -= velocidade_items_y
+                for poça in all_poça:
+                    poça.speedy -= velocidade_items_y
 
         if event.type == pygame.KEYUP:
+            
             if event.key == pygame.K_UP:
-                mapa_mov.speedy -= 13
+                mapa_mov.speedy -= velocidade_y
                 for madeira in all_madeira:
-                    madeira.speedy -= 13
+                    madeira.speedy -= velocidade_items_y
                 for pedra in all_pedras:
-                    pedra.speedy -= 13
-    
+                    pedra.speedy -= velocidade_items_y
+                for poça in all_poça:
+                    poça.speedy -= velocidade_items_y
+
             if event.key == pygame.K_DOWN:
-                mapa_mov.speedy += 13
+                mapa_mov.speedy += velocidade_y
+                
                 for madeira in all_madeira:
-                    madeira.speedy += 13
+                    madeira.speedy += velocidade_items_y
                 for pedra in all_pedras:
-                    pedra.speedy += 13
+                    pedra.speedy += velocidade_items_y
+                for poça in all_poça:
+                    poça.speedy += velocidade_items_y
 
 
-    #pick = pygame.sprite.groupcollide(player_mov,all_madeira,all_pedras,True)
-
-    # if madeira.colliderect() in player_mov.colliderect():
-    #     madeira.kill()
     
     colisao_madeira = pygame.sprite.spritecollide(player_mov, all_madeira, True)
-    # if len(colisao_madeira) > 0:
-    #     print('sim')
-    # else:
-    #     print('não')
-     
+    for madeira in colisao_madeira:
+        conta += len(colisao_madeira)
+        if conta > 30:
+            lives = 1
+            conta = 30
+    
+    
     colisao_pedra = pygame.sprite.spritecollide(player_mov, all_pedras, True)
-    # if len(colisao_pedra) > 0:
-    #     print('sim')
+    for colis in colisao_pedra:
+        conta_2 += len(colisao_pedra)
+        if conta_2 >30:
+            lives +=1
+            conta_2 = 30 
 
-################################################################################################################        
+    colisao_poça = pygame.sprite.spritecollide(player_mov, all_poça, True)
+    for poca in colisao_poça:
+        lives+= len(colisao_poça)
 
-    #print(mapa_mov.speedx)
-    print(pos_m)
-    #print(p_p_x)
-    #print(pm_x)
     all_sprites.update()
     all_madeira.update()
     all_pedras.update()
-    #print(mapa_mov.speedy)
-    #print(mov_px, mov_py)
+    all_poça.update()
+    all_gotas.update()
+    
+    #tempo
+    clock.tick(30)
+    
+    current_time = pygame.time.get_ticks()
+    if current_time > time:
+        time = 2*time
+        lives -= 1
 
     window.fill(PRETO)
-    #window.blit(mar_img,(0,0))
     
     all_sprites.draw(window)
     all_pedras.draw(window)
     all_madeira.draw(window)
-    # window.blit(visao_img,(0,0))
+    all_gotas.draw(window)
+    all_poça.draw(window)
+
+    #Sanidade
+    if lives <= 5:
+        window.blit(visao_img_1,(-80,0))
+    if lives == 2:
+        window.blit(visao_img_2,(-80,0))
+    if lives == 1:
+        window.blit(visao_img_3,(-100,0))
+    if lives == 7:
+        window.blit(casa_img,(520,560))
+
+
+    if conta >= 30 and conta_2 >=30:
+        lives = 7
+    window.blit(madeira_img_2,(20,680))
+    window.blit(pedra_img_2,(150,680))
+
+
+    #madeira
+    text_surface = font_img.render("{:02d}".format(conta), True, (255, 255, 0))
+    text_rect = text_surface.get_rect()
+    text_rect.midtop = (100, 690)
+    window.blit(text_surface, text_rect)
+
+    #pedra
+    text_surface = font_img.render("{:02d}".format(conta_2), True, (255, 255, 0))
+    text_rect = text_surface.get_rect()
+    text_rect.midtop = (220, 690)
+    window.blit(text_surface, text_rect)
+    
+    #vida
+    text_surface = font_img.render(chr(9829) * lives, True, (110, 30, 120))
+    text_rect = text_surface.get_rect()
+    text_rect.midtop = (1200, 690)
+    window.blit(text_surface, text_rect)
+
+    
+    if lives == 0:
+        game = 0
     pygame.display.update()
 
 pygame.quit()
