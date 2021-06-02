@@ -8,15 +8,56 @@ pygame.init()
 pygame.mixer.init()
 
 import pygame
-from index import *
+# from index import *
+from config import *
+from init_screen import * 
+
+INIT = 1
+QUIT = 2 
+
+pygame.init()
+pygame.mixer.init()
 
 # ----- Gera tela principal
 window = pygame.display.set_mode((x_size, y_size))
 pygame.display.set_caption('Raining Day')
 
-game(window) # Executa a função principal do jogo
+state = INIT
+while state != QUIT:
+    if state == INIT:
+        state = init_screen(window)
+    # elif state == GAME:
+    #     state = game_screen(window)
+    else:
+        state = QUIT
 
-pygame.quit()  # Função do PyGame que finaliza os recursos utilizados
+# ===== Finalização =====
+pygame.quit()  # Função do PyGame que finaliza os recursos utiliz
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# # ----- Gera tela principal
+# window = pygame.display.set_mode((x_size, y_size))
+# pygame.display.set_caption('Raining Day')
+
+# index(window) # Executa a função principal do jogo
+
+# pygame.quit()  # Função do PyGame que finaliza os recursos utilizados
 
 
 # ----- Gera tela principal
