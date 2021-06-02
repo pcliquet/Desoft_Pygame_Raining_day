@@ -8,7 +8,7 @@ game = 1
 fase = 1
 
 #Fill
-PRETO = (0, 0, 128)
+PRETO = (0, 0, 0)
 
 #Velocidade
 velocidade_i = 25
