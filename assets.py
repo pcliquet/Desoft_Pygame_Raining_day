@@ -3,6 +3,7 @@ import os
 from os import path
 from config import *
 
+pygame.font.init()
 map_dir = path.join(path.dirname(__file__), 'assets/img/map')
 mapa_img = pygame.image.load(path.join(map_dir, 'Map001.png'))
 mapa_img = pygame.transform.scale(mapa_img,(6400,3200))
@@ -31,14 +32,30 @@ casa_img = pygame.image.load(path.join(casa_dir, 'casa.png'))
 casa_img = pygame.transform.scale(casa_img, (50, 50))
 
 raio_dir = path.join(path.dirname(__file__), 'assets/img/items/raio')
-raio_img = pygame.image.load(path.join(raio_dir, 'raio_1.png'))
-raio_img = pygame.transform.scale(raio_img, (20, 20))
+raio_img = pygame.image.load(path.join(raio_dir, 'raio_3.png'))
+raio_img = pygame.transform.scale(raio_img, (100, 100))
 
 
 visao_dir = path.join(path.dirname(__file__), 'assets/img/items/visao')
-visao_img = pygame.image.load(path.join(visao_dir, 'camera.png'))
-visao_img = pygame.transform.scale(visao_img, (1290, 720))
+visao_img_1 = pygame.image.load(path.join(visao_dir, 'camera_01.png'))
+visao_img_1 = pygame.transform.scale(visao_img_1, (1390, 750))
+
+visao_dir = path.join(path.dirname(__file__), 'assets/img/items/visao')
+visao_img_2 = pygame.image.load(path.join(visao_dir, 'camera_02.png'))
+visao_img_2 = pygame.transform.scale(visao_img_2, (1390, 750))
+
+visao_dir = path.join(path.dirname(__file__), 'assets/img/items/visao')
+visao_img_3 = pygame.image.load(path.join(visao_dir, 'camera_03.png'))
+visao_img_3 = pygame.transform.scale(visao_img_3, (1390, 800))
+
+poça_dir = path.join(path.dirname(__file__), 'assets/img/items/poca')
+poça_img = pygame.image.load(path.join(poça_dir, 'poca.png'))
+poça_img = pygame.transform.scale(poça_img, (100, 100))
 
 mar_dir = path.join(path.dirname(__file__), 'assets/img/items/mar')
 mar_img = pygame.image.load(path.join(mar_dir, 'mar.png'))
 mar_img = pygame.transform.scale(mar_img, (1290, 720))
+
+
+font_dir = path.join(path.dirname(__file__), 'assets/img/fonte')
+font_img = pygame.font.Font((path.join(font_dir, 'PressStart2P.ttf')),28)
