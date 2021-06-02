@@ -67,10 +67,13 @@ class Madeira(pygame.sprite.Sprite):
         self.rect.y = random.randint(504, 3598)
         self.speedx = 0
         self.speedy = 0
+        self.movimento_y = True
 
     def update (self):
         self.rect.x += self.speedx 
-        self.rect.y += self.speedy
+        if self.rect.y < 3598 or self.rect.y > 504:
+            self.rect.y += self.speedy
+
 
 class Pedra(pygame.sprite.Sprite):
     def __init__(self, img):

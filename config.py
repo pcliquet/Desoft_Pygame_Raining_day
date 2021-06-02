@@ -11,7 +11,7 @@ fase = 1
 
 
 #Fill
-PRETO = (0, 0, 0)
+PRETO = (0, 0, 128)
 
 
 p_p_x = 0
