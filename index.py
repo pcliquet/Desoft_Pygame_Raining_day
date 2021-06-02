@@ -141,13 +141,13 @@ while game == 1:
     # if madeira.colliderect() in player_mov.colliderect():
     #     madeira.kill()
     
-    colisao_madeira = pygame.sprite.spritecollide(player_mov, all_madeira, False)
+    colisao_madeira = pygame.sprite.spritecollide(player_mov, all_madeira, True)
     # if len(colisao_madeira) > 0:
     #     print('sim')
     # else:
     #     print('não')
      
-    colisao_pedra = pygame.sprite.spritecollide(player_mov, all_pedras, False)
+    colisao_pedra = pygame.sprite.spritecollide(player_mov, all_pedras, True)
     # if len(colisao_pedra) > 0:
     #     print('sim')
 
