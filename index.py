@@ -24,17 +24,35 @@ pos_pedra = {
 mapa_img.convert()
 player_img.convert()
 gota_img.convert()
-all_sprites = pygame.sprite.Group()
+madeira_img.convert()
+raio_img.convert()
 
+
+
+all_sprites = pygame.sprite.Group()
+all_pedras = pygame.sprite.Group()
+all_madeira = pygame.sprite.Group()
 #################################
 mapa_mov = Mapa(mapa_img)
 player_mov = Player(player_img)
-pedrita = Pedra(pedra_img)
+
 
 
 all_sprites.add(mapa_mov)
 all_sprites.add(player_mov)
-all_sprites.add(pedrita)
+
+
+
+for m in range(30):
+    madeira = Madeira(madeira_img)
+    all_madeira.add(madeira)
+for f in range(30):
+    pedrita = Pedra(pedra_img)
+    all_pedras.add(pedrita)
+
+
+
+
 
 
 while game == 1:
@@ -45,17 +63,18 @@ while game == 1:
 
     
 
+    # pedrita.rect.y = mapa_mov.speedy
+    # pedrita.rect.x = mapa_mov.speedx
+
     pos_p['x'] = player_mov.rect.left
     pos_p['y'] = player_mov.rect.bottom
 
     #Condições iniciais
-    pos_m['x'] = mapa_mov.rect.right
-    pos_m['y'] = mapa_mov.rect.top
+    pos_m['x'] = mapa_mov.rect.left
+    pos_m['y'] = mapa_mov.rect.bottom
 
 
-    pos_pedra['x_i'] = pedrita.rect.x
-    pos_pedra['y_i'] = pedrita.rect.y
-
+ 
 
 
 
@@ -65,101 +84,59 @@ while game == 1:
             game = 0
 
         #[Movimenta o mapa]
-        if pos_p['x'] == 520:
-            if event.type == pygame.KEYDOWN:    
-                if event.key == pygame.K_LEFT:
-                    mapa_mov.speedx += 13
 
-                if event.key == pygame.K_RIGHT:
-                    mapa_mov.speedx -= 13
-  
-            if event.type == pygame.KEYUP:
-                if event.key == pygame.K_LEFT:
-                    mapa_mov.speedx -= 13
+        if event.type == pygame.KEYDOWN:    
+            if event.key == pygame.K_LEFT:
+                mapa_mov.speedx += 13
 
-                if event.key == pygame.K_RIGHT:
-                    mapa_mov.speedx += 13
+            if event.key == pygame.K_RIGHT:
+                mapa_mov.speedx -= 13
+
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT:
+                mapa_mov.speedx -= 13
+
+            if event.key == pygame.K_RIGHT:
+                mapa_mov.speedx += 13
+    
+
+        if event.type == pygame.KEYDOWN: 
+            if event.key == pygame.K_UP:
+                mapa_mov.speedy += 13
+
+            if event.key == pygame.K_DOWN:
+                mapa_mov.speedy -= 13
+
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_UP:
+                mapa_mov.speedy -= 13
+    
+            if event.key == pygame.K_DOWN:
+                mapa_mov.speedy += 13
+        
        
-        if pos_p['y'] == 560: 
-            if event.type == pygame.KEYDOWN: 
-                if event.key == pygame.K_UP:
-                    mapa_mov.speedy += 13
+    #pick = pygame.sprite.groupcollide(player_mov,all_madeira,all_pedras,True)
 
-                if event.key == pygame.K_DOWN:
-                    mapa_mov.speedy -= 13
-   
-            if event.type == pygame.KEYUP:
-                if event.key == pygame.K_UP:
-                    mapa_mov.speedy -= 13
-        
-                if event.key == pygame.K_DOWN:
-                    mapa_mov.speedy += 13
-         
-       
-        #[Movimenta o personagem em X]
-        # if pos_m['x'] == 4000 or pos_m['x'] == 1290:
-        
-        
-        #     if pos_m['x'] == 4000:
-        #         pos_p['c_x'] = 0
-        #     if pos_m['x'] == 1290:
-        #         pos_p['c_x'] = 1
-        #     if event.type == pygame.KEYDOWN:    
-        #         if event.key == pygame.K_LEFT:
-        #             player_mov.speedx -= 10
-        #             pos_p['m_x'] = 1
-        #         if event.key == pygame.K_RIGHT:
-        #             player_mov.speedx += 10
-        #             pos_p['m_x'] = 1
+    if madeira.colliderect() in player_mov.colliderect():
+        madeira.kill()
 
-        #     if event.type == pygame.KEYUP: 
-        #         if event.key == pygame.K_LEFT and pos_p['m_x'] == 1:
-        #             player_mov.speedx += 10
-        #             pos_p['m_x'] = 0
-        #         if event.key == pygame.K_RIGHT and pos_p['m_x'] == 1:
-        #             player_mov.speedx -= 10 
-        
-        
-        # #[Movimenta o Personagem em Y]      
-        # if pos_m['y'] == 0 or pos_m['y'] == -1280:
-        
-        #     if pos_m['y'] == 0:
-        #         pos_p['c_y'] = 0
-        #     if pos_m['y'] == -1280:
-        #         pos_p['c_y'] = 1
-        #     if event.type == pygame.KEYDOWN:     
-        #         if event.key == pygame.K_UP:
-        #             player_mov.speedy -= 10
-        #             pos_p['m_y'] = 1
-        #         if event.key == pygame.K_DOWN:
-        #             player_mov.speedy += 10
-        #             pos_p['m_y'] = 1
-
-        #     if event.type == pygame.KEYUP: 
-        #         if event.key == pygame.K_UP and pos_p['m_y'] == 1:
-        #             player_mov.speedy += 10
-        #             pos_p['m_y'] == 0
-        #         if event.key == pygame.K_DOWN and pos_p['m_y'] == 1:
-        #             player_mov.speedy -= 10 
-        #             pos_p['m_y'] == 0
-
-                  
 ################################################################################################################        
         
     #print(mapa_mov.speedx)
-    print(pos_m,pos_pedra)
+    #print(pos_m)
     #print(p_p_x)
     #print(pm_x)
     all_sprites.update()
     #print(mapa_mov.speedy)
     #print(mov_px, mov_py)
     
-    
     window.fill(PRETO)
+    #window.blit(mar_img,(0,0))
     
     all_sprites.draw(window)
-    #window.blit(gota_c)
-    #window.blit(player_img, (520,360))
+    all_pedras.draw(mapa_img)
+    all_madeira.draw(mapa_img)
+    window.blit(visao_img,(0,0))
     pygame.display.update()
     
 pygame.quit()
