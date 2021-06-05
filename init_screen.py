@@ -1,17 +1,15 @@
 import pygame
 import random
 from os import path
-
-
-FPS = 60 
+from config import *
 
 def init_screen(screen):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 
-    # Carrega o fundo da tela inicial
-    # background = pygame.image.load(path.join(IMG_DIR, 'inicio.png')).convert()
-    # background_rect = background.get_rect()
+    #Carrega o fundo da tela inicial
+    background = pygame.image.load(path.join(IMG_DIR, 'tela_inicial.png')).convert()
+    background_rect = background.get_rect()
 
     running = True
     while running:
