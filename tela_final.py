@@ -1,7 +1,7 @@
 import pygame
 from assets import * 
 from config import *
-def init_screen(screen):
+def tela_final(screen):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 
@@ -11,7 +11,7 @@ def init_screen(screen):
         clock.tick(FPS)
         font = pygame.font.SysFont('Algerian', 80)
         font2 = pygame.font.SysFont('Cooperplate Gothic Bold', 40)
-        text2 = font2.render("Pressione qualquer tecla para iniciar o jogo.", False, (255, 255, 255))
+        text2 = font2.render("Acabou :(", False, (255, 255, 255)) 
         # Processa os eventos (mouse, teclado, botão, etc).
         for event in pygame.event.get():
             # Verifica se foi fechado.
@@ -23,7 +23,7 @@ def init_screen(screen):
                 running = False
         # A cada loop, redesenha o fundo e os sprites
         window.fill((255, 255, 255))
-        window.blit(init_img, (0, 0))
+        window.blit(final_img, (0, 0))
         
         window.blit(text2, ((x_size/2 - 300), (10)))
         # Depois de desenhar tudo, inverte o display.

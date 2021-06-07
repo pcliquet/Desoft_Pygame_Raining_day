@@ -2,6 +2,8 @@ import pygame
 import os
 from os import path
 from config import *
+import assets
+
 
 pygame.font.init()
 map_dir = path.join(path.dirname(__file__), 'assets/img/map')
@@ -55,7 +57,27 @@ poça_img = pygame.transform.scale(poça_img, (100, 100))
 mar_dir = path.join(path.dirname(__file__), 'assets/img/items/mar')
 mar_img = pygame.image.load(path.join(mar_dir, 'mar.png'))
 mar_img = pygame.transform.scale(mar_img, (1290, 720))
-
-
+print(mar_dir)
 font_dir = path.join(path.dirname(__file__), 'assets/img/fonte')
 font_img = pygame.font.Font((path.join(font_dir, 'PressStart2P.ttf')),28)
+
+won_dir = path.join(path.dirname(__file__), 'assets/img/telas')
+print(won_dir)
+print(path.join(won_dir, 'win.png'))
+won_img = pygame.image.load(path.join(won_dir, 'win.png'))
+won_img = pygame.transform.scale(won_img,(1290,720)).convert()
+INICIAL = 'won_img'
+
+lose_dir = path.join(path.dirname(__file__), 'assets/img/telas')
+lose_img = pygame.image.load(path.join(won_dir, 'game_over.png')).convert()
+lose_img = pygame.transform.scale(lose_img,(1290,720))
+# assets[lose_img] = pygame.transform.scale(lose_img, (x_size, y_size))
+
+init_dir = path.join(path.dirname(__file__), 'assets/img/telas')
+init_img = pygame.image.load(path.join(init_dir, 'tela_inicial.png')).convert()
+init_img = pygame.transform.scale(init_img,(1290,720))
+
+final_dir = path.join(path.dirname(__file__), 'assets/img/telas')
+final_img = pygame.image.load(path.join(final_dir, 'tela_final.png')).convert()
+final_img = pygame.transform.scale(final_img,(1290,720))
+
