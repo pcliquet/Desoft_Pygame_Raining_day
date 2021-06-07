@@ -16,11 +16,11 @@ def game_screen(window):
     conta_2 = 0
 
     #Vida
-    lives = 1
+    lives = 3
     game = 1
     fase = 1
     current_time = 0 
-    time = 3*1000
+    time = 30*1000
     #conversor para imagem vetorizada
     mapa_img.convert()
     player_img.convert()
@@ -190,7 +190,6 @@ def game_screen(window):
         for madeira in colisao_madeira:
             conta += len(colisao_madeira)
             if conta > 30:
-                lives = 1
                 conta = 30
         
         
@@ -198,7 +197,6 @@ def game_screen(window):
         for colis in colisao_pedra:
             conta_2 += len(colisao_pedra)
             if conta_2 >30:
-                lives +=1
                 conta_2 = 30 
 
         colisao_poça = pygame.sprite.spritecollide(player_mov, all_poça, True)

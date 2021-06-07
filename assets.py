@@ -57,13 +57,12 @@ poça_img = pygame.transform.scale(poça_img, (100, 100))
 mar_dir = path.join(path.dirname(__file__), 'assets/img/items/mar')
 mar_img = pygame.image.load(path.join(mar_dir, 'mar.png'))
 mar_img = pygame.transform.scale(mar_img, (1290, 720))
-print(mar_dir)
+
 font_dir = path.join(path.dirname(__file__), 'assets/img/fonte')
 font_img = pygame.font.Font((path.join(font_dir, 'PressStart2P.ttf')),28)
 
 won_dir = path.join(path.dirname(__file__), 'assets/img/telas')
-print(won_dir)
-print(path.join(won_dir, 'win.png'))
+
 won_img = pygame.image.load(path.join(won_dir, 'win.png'))
 won_img = pygame.transform.scale(won_img,(1290,720)).convert()
 INICIAL = 'won_img'

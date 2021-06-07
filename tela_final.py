@@ -21,6 +21,7 @@ def tela_final(screen):
             if event.type == pygame.KEYDOWN:
                 state = DONE
                 running = False
+                pygame.quit() 
         # A cada loop, redesenha o fundo e os sprites
         window.fill((255, 255, 255))
         window.blit(final_img, (0, 0))
