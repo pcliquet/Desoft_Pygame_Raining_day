@@ -21,6 +21,7 @@ def tela_final(screen):
             if event.type == pygame.KEYDOWN:
                 state = DONE
                 running = False
+                pygame.quit()
         # A cada loop, redesenha o fundo e os sprites
         window.fill((255, 255, 255))
         window.blit(final_img, (0, 0))
@@ -28,4 +29,5 @@ def tela_final(screen):
         window.blit(text2, ((x_size/2 - 300), (10)))
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
+
     return GAME

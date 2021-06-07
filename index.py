@@ -16,11 +16,11 @@ def game_screen(window):
     conta_2 = 0
 
     #Vida
-    lives = 1
+    lives = 3
     game = 1
     fase = 1
     current_time = 0 
-    time = 3*1000
+    time = 30*1000
     #conversor para imagem vetorizada
     mapa_img.convert()
     player_img.convert()
