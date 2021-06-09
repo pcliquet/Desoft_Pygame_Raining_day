@@ -13,3 +13,6 @@ Itens para pegar:
 
 Como recuperar vida:
 - Encontrando água, mas fique atento que só tem duas no mapa
+
+## Trilha
+Raining day - Pedro Cliquet do Amaral
