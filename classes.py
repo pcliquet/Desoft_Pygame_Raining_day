@@ -3,6 +3,7 @@ from pygame.display import update
 import pygame
 from assets import *
 from config import *
+from pygame.transform import flip
 import random
 
 
@@ -39,30 +40,32 @@ class Mapa(pygame.sprite.Sprite):
 class Player(pygame.sprite.Sprite):
     def __init__(self,imgs):
         pygame.sprite.Sprite.__init__(self)
-        self.imageIndex = 0
+        self.imageIndex = 1
         self.imgDelay = 0
         self.imgs = imgs
         self.image = imgs[self.imageIndex]
-        print(self.imgs)
         self.rect = self.image.get_rect()
         self.rect.x = 520
         self.rect.y = 360
         self.speedx = 0
         self.speedy = 0
-        # self.mask = img
+
 
     def update(self):
-
+        
+        image = self.imgs[self.imageIndex]
         self.imgDelay += 1
-        if self.imgDelay % 5 == 0:
-            # if self.speedx != 0 or self.speedy != 0:
-            self.imageIndex = (self.imageIndex + 1) % len(self.imgs)
-            self.image = self.imgs[self.imageIndex]
-            self.rect = self.image.get_rect()
-            self.rect.x = 520
-            self.rect.y = 360
-
-
+        if self.speedx != 0 or self.speedy != 0:
+            if self.imgDelay % 5 == 0:
+                self.imageIndex = (self.imageIndex + 1) % len(self.imgs)
+                self.image = self.imgs[self.imageIndex]
+                self.rect = self.image.get_rect()
+                self.rect.x = 520
+                self.rect.y = 360
+        
+        else:
+            self.image = self.imgs[0]
+     
     def pick_up (self):
         pass
 

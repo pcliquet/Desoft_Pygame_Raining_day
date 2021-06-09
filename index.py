@@ -5,6 +5,7 @@ from classes import *
 import assets
 from init_screen import *
 from tela_final import *
+from won_screen import *
 
 def game_screen(window):
 
@@ -27,7 +28,7 @@ def game_screen(window):
     gota_img.convert()
     madeira_img.convert()
     poça_img.convert()
-    casa_img.convert()
+    casa = casa_img.convert()
 
 
     #escala na tela
@@ -102,6 +103,7 @@ def game_screen(window):
                 if event.key == pygame.K_LEFT:
                     mapa_mov.speedx += velocidade_x
                     player_mov.speedx = mapa_mov.speedx
+    
                     for madeira in all_madeira:
                         madeira.speedx += velocidade_items_x
                     for pedra in all_pedras:
@@ -144,10 +146,10 @@ def game_screen(window):
 
             if event.type == pygame.KEYDOWN: 
                 velocidade_y = velocidade_i
-                player_mov.speedy = mapa_mov.speedy         
+                       
                 if event.key == pygame.K_UP:
                     mapa_mov.speedy += velocidade_y
-
+                    player_mov.speedy = mapa_mov.speedy  
                     for madeira in all_madeira:
                         madeira.speedy += velocidade_items_y
                     for pedra in all_pedras:
@@ -158,7 +160,7 @@ def game_screen(window):
                 if event.key == pygame.K_DOWN:
                     
                     mapa_mov.speedy -= velocidade_y
-
+                    player_mov.speedy = mapa_mov.speedy  
                     for madeira in all_madeira:
                         madeira.speedy -= velocidade_items_y
                     for pedra in all_pedras:
@@ -170,7 +172,7 @@ def game_screen(window):
                 
                 if event.key == pygame.K_UP:
                     mapa_mov.speedy -= velocidade_y
-                    player_mov.speedy -= mapa_mov.speedy
+                    player_mov.speedy = mapa_mov.speedy
                     for madeira in all_madeira:
                         madeira.speedy -= velocidade_items_y
                     for pedra in all_pedras:
@@ -180,7 +182,7 @@ def game_screen(window):
 
                 if event.key == pygame.K_DOWN:
                     mapa_mov.speedy += velocidade_y
-                    
+                    player_mov.speedy = mapa_mov.speedy  
                     for madeira in all_madeira:
                         madeira.speedy += velocidade_items_y
                     for pedra in all_pedras:
@@ -206,6 +208,7 @@ def game_screen(window):
         colisao_poça = pygame.sprite.spritecollide(player_mov, all_poça, True)
         for poca in colisao_poça:
             lives+= len(colisao_poça)
+
 
         all_sprites.update()
         all_madeira.update()
@@ -236,12 +239,14 @@ def game_screen(window):
             window.blit(visao_img_2,(-80,0))
         if lives == 1:
             window.blit(visao_img_3,(-100,0))
-        if lives == 7:
-            window.blit(casa_img,(520,560))
+        # if lives == 7:
+        #     window.blit(casa_img,(520,560))
 
 
         if conta >= 30 and conta_2 >=30:
             lives = 7
+            window.blit(casa,(520,560))
+            return WIN
         window.blit(madeira_img_2,(20,680))
         window.blit(pedra_img_2,(150,680))
         #colocar tela de ganho
@@ -287,6 +292,8 @@ while state != QUIT:
         state = game_screen(window)
     elif state == TELAFINAL:
         state = tela_final(window)
+    elif state == WIN:
+        state = won_screen(window)
     else:
         state = QUIT
 

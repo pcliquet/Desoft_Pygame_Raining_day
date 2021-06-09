@@ -14,5 +14,6 @@ GAME = 1
 QUIT = 2
 TELAFINAL = 6
 DONE = 8 
+WIN = 3
 window = pygame.display.set_mode((x_size, y_size))
 

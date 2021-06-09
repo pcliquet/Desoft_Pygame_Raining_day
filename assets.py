@@ -36,7 +36,7 @@ pedra_img = pygame.transform.scale(pedra_img, (50, 50))
 
 casa_dir = path.join(path.dirname(__file__), 'assets/img/items/casa')
 casa_img = pygame.image.load(path.join(casa_dir, 'casa.png'))
-casa_img = pygame.transform.scale(casa_img, (50, 50))
+casa_img = pygame.transform.scale(casa_img, (500, 500))
 
 raio_dir = path.join(path.dirname(__file__), 'assets/img/items/raio')
 raio_img = pygame.image.load(path.join(raio_dir, 'raio_3.png'))

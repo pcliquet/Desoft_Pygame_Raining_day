@@ -11,7 +11,7 @@ def init_screen(screen):
         clock.tick(FPS)
         font = pygame.font.SysFont('Algerian', 80)
         font2 = pygame.font.SysFont('Cooperplate Gothic Bold', 40)
-        text2 = font2.render("Pressione Q para iniciar o jogo.", False, (0, 0, 0))
+        text2 = font2.render("Pressione 'Q' para iniciar o jogo.", False, (0, 0, 0))
         # Processa os eventos (mouse, teclado, botão, etc).
         for event in pygame.event.get():
             # Verifica se foi fechado.
@@ -26,7 +26,7 @@ def init_screen(screen):
         window.fill((255, 255, 255))
         window.blit(init_img, (0, 0))
         
-        window.blit(text2, ((x_size/2 - 300), (10)))
+        window.blit(text2, ((450), (10)))
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
     return GAME
