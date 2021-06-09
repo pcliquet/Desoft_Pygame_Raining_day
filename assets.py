@@ -87,7 +87,7 @@ final_img = pygame.transform.scale(final_img,(1290,720))
 
 
 intro = path.join(path.dirname(__file__), 'assets\music\Raining day')
-intro_m = path.join(intro, "raining_day.ogg")
+intro_m = path.join(intro, "raining_day.wav")
 
 beber = path.join(path.dirname(__file__), 'assets\sound_fx')
 beber_sound = path.join(beber, "water_fx.wav")
