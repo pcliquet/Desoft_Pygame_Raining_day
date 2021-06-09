@@ -25,10 +25,10 @@ def tela_final(screen):
                 #     lives = 3
                 #     current_time = 0
                 #     return GAME
-                else:
-                    state = DONE
-                    running = False
-                    pygame.quit() 
+                
+                state = DONE
+                running = False
+                pygame.quit() 
         # A cada loop, redesenha o fundo e os sprites
         window.fill((255, 255, 255))
         window.blit(final_img, (0, 0))
