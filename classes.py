@@ -37,15 +37,30 @@ class Mapa(pygame.sprite.Sprite):
 
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self,img):
+    def __init__(self,imgs):
         pygame.sprite.Sprite.__init__(self)
-        self.image = img
+        self.imageIndex = 0
+        self.imgDelay = 0
+        self.imgs = imgs
+        self.image = imgs[self.imageIndex]
+        print(self.imgs)
         self.rect = self.image.get_rect()
         self.rect.x = 520
         self.rect.y = 360
         self.speedx = 0
         self.speedy = 0
         # self.mask = img
+
+    def update(self):
+
+        self.imgDelay += 1
+        if self.imgDelay % 5 == 0:
+            # if self.speedx != 0 or self.speedy != 0:
+            self.imageIndex = (self.imageIndex + 1) % len(self.imgs)
+            self.image = self.imgs[self.imageIndex]
+            self.rect = self.image.get_rect()
+            self.rect.x = 520
+            self.rect.y = 360
 
 
     def pick_up (self):

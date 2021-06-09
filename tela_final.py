@@ -11,7 +11,7 @@ def tela_final(screen):
         clock.tick(FPS)
         font = pygame.font.SysFont('Algerian', 80)
         font2 = pygame.font.SysFont('Cooperplate Gothic Bold', 40)
-        text2 = font2.render("Acabou :(", False, (255, 255, 255)) 
+        text2 = font2.render("Pressione qualquer tela para finalizar", False, (0, 0, 0)) 
         # Processa os eventos (mouse, teclado, botão, etc).
         for event in pygame.event.get():
             # Verifica se foi fechado.

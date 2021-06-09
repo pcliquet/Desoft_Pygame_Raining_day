@@ -48,7 +48,7 @@ def game_screen(window):
 
     #Declarando objetos
     mapa_mov = Mapa(mapa_img)
-    player_mov = Player(player_img)
+    player_mov = Player(player_imgs)
 
 
 
@@ -101,6 +101,7 @@ def game_screen(window):
 
                 if event.key == pygame.K_LEFT:
                     mapa_mov.speedx += velocidade_x
+                    player_mov.speedx = mapa_mov.speedx
                     for madeira in all_madeira:
                         madeira.speedx += velocidade_items_x
                     for pedra in all_pedras:
@@ -110,6 +111,7 @@ def game_screen(window):
 
                 if event.key == pygame.K_RIGHT:
                     mapa_mov.speedx -= velocidade_x
+                    player_mov.speedx = mapa_mov.speedx
                     for madeira in all_madeira:
                         madeira.speedx -= velocidade_items_x
                     for pedra in all_pedras:
@@ -121,6 +123,7 @@ def game_screen(window):
                 
                 if event.key == pygame.K_LEFT:
                     mapa_mov.speedx -= velocidade_x
+                    player_mov.speedx = mapa_mov.speedx
                     for madeira in all_madeira:
                         madeira.speedx -= velocidade_items_x
                     for pedra in all_pedras:
@@ -130,6 +133,7 @@ def game_screen(window):
 
                 if event.key == pygame.K_RIGHT:
                     mapa_mov.speedx += velocidade_x
+                    player_mov.speedx = mapa_mov.speedx
                     for madeira in all_madeira:
                         madeira.speedx += velocidade_items_x
                     for pedra in all_pedras:
@@ -140,9 +144,8 @@ def game_screen(window):
 
             if event.type == pygame.KEYDOWN: 
                 velocidade_y = velocidade_i
-            
+                player_mov.speedy = mapa_mov.speedy         
                 if event.key == pygame.K_UP:
-                    
                     mapa_mov.speedy += velocidade_y
 
                     for madeira in all_madeira:
@@ -163,10 +166,11 @@ def game_screen(window):
                     for poça in all_poça:
                         poça.speedy -= velocidade_items_y
 
-            if event.type == pygame.KEYUP:
+            if event.type == pygame.KEYUP: 
                 
                 if event.key == pygame.K_UP:
                     mapa_mov.speedy -= velocidade_y
+                    player_mov.speedy -= mapa_mov.speedy
                     for madeira in all_madeira:
                         madeira.speedy -= velocidade_items_y
                     for pedra in all_pedras:

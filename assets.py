@@ -15,7 +15,12 @@ mapa_img = pygame.transform.scale(mapa_img,(6400,3200))
 
 player_dir = path.join(path.dirname(__file__),'assets/img/char')
 player_img = pygame.image.load(path.join(player_dir, 'char_1.png'))
+player_img2 = pygame.image.load(path.join(player_dir, 'run_00.png'))
+player_img3 = pygame.image.load(path.join(player_dir, 'run_01.png'))
 player_img = pygame.transform.scale(player_img,(200,200))
+player_img2 = pygame.transform.scale(player_img2,(200,200))
+player_img3 = pygame.transform.scale(player_img3,(200,200))
+player_imgs = [player_img, player_img2, player_img3]
 
 madeira_dir = path.join(path.dirname(__file__), 'assets/img/items/madeira')
 madeira_img = pygame.image.load(path.join(madeira_dir, 'madeira.png'))
