@@ -22,6 +22,8 @@ def won_screen(screen):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     state = GAME
+                    lives = 3
+                    current_time = 0
                     return GAME
                 if event.key == pygame.K_w:
                     state = DONE
@@ -32,7 +34,7 @@ def won_screen(screen):
         window.blit(won_img, (0, 0))
         
         window.blit(text2, ((180), (10)))
-
+        
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
     return QUIT

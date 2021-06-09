@@ -11,7 +11,7 @@ from instrucoes import *
 pygame.mixer.init()
 pygame.mixer.music.load(intro_m)
 pygame.mixer.music.set_volume(0.2)
-pygame.mixer.music.play(loops = True)
+pygame.mixer.music.play(loops = -1)
 
 effect = pygame.mixer.Sound(beber_sound)
 effect_2 = pygame.mixer.Sound(pick_sound)
@@ -29,7 +29,8 @@ def game_screen(window):
     lives = 3
     game = 1
     fase = 1
-    current_time = 0 
+  
+    current_time = 0
     time = 30*1000
     #conversor para imagem vetorizada
     mapa_img.convert()
@@ -286,6 +287,8 @@ def game_screen(window):
     #colocar tela de game over + agradecimentos
         if lives == 0:
             game = 0
+            lives = 3
+            current_time = 0
         pygame.display.update()
     return TELAFINAL
 
@@ -303,6 +306,8 @@ while state != QUIT:
     elif state == INSTRUCOES:
         state = tela_instrucoes(window)
     elif state == GAME:
+        lives = 3
+        current_time = 0
         state = game_screen(window)
     elif state == TELAFINAL:
         state = tela_final(window)

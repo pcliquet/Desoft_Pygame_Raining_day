@@ -4,7 +4,8 @@ from config import *
 def init_screen(screen):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
-
+    lives = 3
+    current_time = 0
     running = True
     while running:
             # Ajusta a velocidade do jogo.
@@ -29,4 +30,4 @@ def init_screen(screen):
         window.blit(text2, ((450), (10)))
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
-    return GAME
+    return INSTRUCOES
