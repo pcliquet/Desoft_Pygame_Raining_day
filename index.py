@@ -6,6 +6,8 @@ import assets
 from init_screen import *
 from tela_final import *
 from won_screen import *
+from instrucoes import *
+
 pygame.mixer.init()
 pygame.mixer.music.load(intro_m)
 pygame.mixer.music.set_volume(0.2)
@@ -298,6 +300,8 @@ state = INIT
 while state != QUIT:
     if state == INIT:
         state = init_screen(window)
+    elif state == INSTRUCOES:
+        state = tela_instrucoes(window)
     elif state == GAME:
         state = game_screen(window)
     elif state == TELAFINAL:
