@@ -6,6 +6,13 @@ import assets
 from init_screen import *
 from tela_final import *
 from won_screen import *
+pygame.mixer.init()
+pygame.mixer.music.load(intro_m)
+pygame.mixer.music.set_volume(0.2)
+pygame.mixer.music.play(loops = True)
+
+effect = pygame.mixer.Sound(beber_sound)
+effect_2 = pygame.mixer.Sound(pick_sound)
 
 def game_screen(window):
 
@@ -194,6 +201,7 @@ def game_screen(window):
         
         colisao_madeira = pygame.sprite.spritecollide(player_mov, all_madeira, True)
         for madeira in colisao_madeira:
+            effect_2.play()
             conta += len(colisao_madeira)
             if conta > 30:
                 conta = 30
@@ -201,6 +209,7 @@ def game_screen(window):
         
         colisao_pedra = pygame.sprite.spritecollide(player_mov, all_pedras, True)
         for colis in colisao_pedra:
+            effect_2.play()
             conta_2 += len(colisao_pedra)
             if conta_2 >30:
                 conta_2 = 30 
@@ -208,6 +217,7 @@ def game_screen(window):
         colisao_poça = pygame.sprite.spritecollide(player_mov, all_poça, True)
         for poca in colisao_poça:
             lives+= len(colisao_poça)
+            effect.play()
 
 
         all_sprites.update()

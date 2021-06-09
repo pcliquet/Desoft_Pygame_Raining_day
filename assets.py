@@ -85,3 +85,12 @@ final_dir = path.join(path.dirname(__file__), 'assets/img/telas')
 final_img = pygame.image.load(path.join(final_dir, 'tela_final.png')).convert()
 final_img = pygame.transform.scale(final_img,(1290,720))
 
+
+intro = path.join(path.dirname(__file__), 'assets\music\Raining day')
+intro_m = path.join(intro, "raining_day.ogg")
+
+beber = path.join(path.dirname(__file__), 'assets\sound_fx')
+beber_sound = path.join(beber, "water_fx.wav")
+
+pick = path.join(path.dirname(__file__), 'assets\sound_fx')
+pick_sound = path.join(pick, "pick_fx.wav")
