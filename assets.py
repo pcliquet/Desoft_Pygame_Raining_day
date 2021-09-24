@@ -55,9 +55,9 @@ visao_dir = path.join(path.dirname(__file__), 'assets/img/items/visao')
 visao_img_3 = pygame.image.load(path.join(visao_dir, 'camera_03.png'))
 visao_img_3 = pygame.transform.scale(visao_img_3, (1390, 800))
 
-poça_dir = path.join(path.dirname(__file__), 'assets/img/items/poca')
-poça_img = pygame.image.load(path.join(poça_dir, 'poca.png'))
-poça_img = pygame.transform.scale(poça_img, (100, 100))
+poca_dir = path.join(path.dirname(__file__), 'assets/img/items/poca')
+poca_img = pygame.image.load(path.join(poca_dir, 'poca.png'))
+poca_img = pygame.transform.scale(poca_img, (100, 100))
 
 mar_dir = path.join(path.dirname(__file__), 'assets/img/items/mar')
 mar_img = pygame.image.load(path.join(mar_dir, 'mar.png'))

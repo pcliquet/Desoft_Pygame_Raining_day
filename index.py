@@ -16,6 +16,18 @@ pygame.mixer.music.play(loops = -1)
 effect = pygame.mixer.Sound(beber_sound)
 effect_2 = pygame.mixer.Sound(pick_sound)
 
+def _generate_assets(assets_madeira, assets_pedras, assets_poca):
+    for _ in range(35):
+        madeira = Madeira(madeira_img)
+        assets_madeira.add(madeira)
+
+        pedrita = Pedra(pedra_img)
+        assets_pedras.add(pedrita)
+
+    for _ in range(2):
+        poca_mov = Poca(poca_img)
+        assets_poca.add(poca_mov)
+
 def game_screen(window):
 
     #Velocidade
@@ -37,7 +49,7 @@ def game_screen(window):
     player_img.convert()
     gota_img.convert()
     madeira_img.convert()
-    poça_img.convert()
+    poca_img.convert()
     casa = casa_img.convert()
 
 
@@ -52,7 +64,7 @@ def game_screen(window):
     all_sprites = pygame.sprite.Group()
     all_pedras = pygame.sprite.Group()
     all_madeira = pygame.sprite.Group()
-    all_poça = pygame.sprite.Group()
+    all_poca = pygame.sprite.Group()
     all_gotas = pygame.sprite.Group()
 
 
@@ -77,23 +89,8 @@ def game_screen(window):
     velocidade_items_y = velocidade_i
 
 
-
-    #Gerando madeiras no mapa
-    for m in range(35):
-        madeira = Madeira(madeira_img)
-        all_madeira.add(madeira)
-
-
-    #Gerando pedras no mapa
-    for f in range(35):
-        pedrita = Pedra(pedra_img)
-        all_pedras.add(pedrita)
-
-
-    for p in range(2):
-        poça_mov = Poça(poça_img)
-        all_poça.add(poça_mov)
-    #Chuva
+    _generate_assets(all_madeira, all_pedras, all_poca)
+    
 
     game = 1
     while game == 1:
@@ -118,8 +115,8 @@ def game_screen(window):
                         madeira.speedx += velocidade_items_x
                     for pedra in all_pedras:
                         pedra.speedx += velocidade_items_x
-                    for poça in all_poça:
-                        poça.speedx += velocidade_items_x
+                    for poca in all_poca:
+                        poca.speedx += velocidade_items_x
 
                 if event.key == pygame.K_RIGHT:
                     mapa_mov.speedx -= velocidade_x
@@ -128,8 +125,8 @@ def game_screen(window):
                         madeira.speedx -= velocidade_items_x
                     for pedra in all_pedras:
                         pedra.speedx -= velocidade_items_x
-                    for poça in all_poça:
-                        poça.speedx -= velocidade_items_x
+                    for poca in all_poca:
+                        poca.speedx -= velocidade_items_x
 
             if event.type == pygame.KEYUP:
                 
@@ -140,8 +137,8 @@ def game_screen(window):
                         madeira.speedx -= velocidade_items_x
                     for pedra in all_pedras:
                         pedra.speedx -= velocidade_items_x
-                    for poça in all_poça:
-                        poça.speedx -= velocidade_items_x
+                    for poca in all_poca:
+                        poca.speedx -= velocidade_items_x
 
                 if event.key == pygame.K_RIGHT:
                     mapa_mov.speedx += velocidade_x
@@ -150,8 +147,8 @@ def game_screen(window):
                         madeira.speedx += velocidade_items_x
                     for pedra in all_pedras:
                         pedra.speedx += velocidade_items_x
-                    for poça in all_poça:
-                        poça.speedx += velocidade_items_x
+                    for poca in all_poca:
+                        poca.speedx += velocidade_items_x
 
 
             if event.type == pygame.KEYDOWN: 
@@ -164,8 +161,8 @@ def game_screen(window):
                         madeira.speedy += velocidade_items_y
                     for pedra in all_pedras:
                         pedra.speedy += velocidade_items_y
-                    for poça in all_poça:
-                        poça.speedy += velocidade_items_y
+                    for poca in all_poca:
+                        poca.speedy += velocidade_items_y
 
                 if event.key == pygame.K_DOWN:
                     
@@ -175,8 +172,8 @@ def game_screen(window):
                         madeira.speedy -= velocidade_items_y
                     for pedra in all_pedras:
                         pedra.speedy -= velocidade_items_y
-                    for poça in all_poça:
-                        poça.speedy -= velocidade_items_y
+                    for poca in all_poca:
+                        poca.speedy -= velocidade_items_y
 
             if event.type == pygame.KEYUP: 
                 
@@ -187,8 +184,8 @@ def game_screen(window):
                         madeira.speedy -= velocidade_items_y
                     for pedra in all_pedras:
                         pedra.speedy -= velocidade_items_y
-                    for poça in all_poça:
-                        poça.speedy -= velocidade_items_y
+                    for poca in all_poca:
+                        poca.speedy -= velocidade_items_y
 
                 if event.key == pygame.K_DOWN:
                     mapa_mov.speedy += velocidade_y
@@ -197,8 +194,8 @@ def game_screen(window):
                         madeira.speedy += velocidade_items_y
                     for pedra in all_pedras:
                         pedra.speedy += velocidade_items_y
-                    for poça in all_poça:
-                        poça.speedy += velocidade_items_y
+                    for poca in all_poca:
+                        poca.speedy += velocidade_items_y
 
 
         
@@ -217,16 +214,16 @@ def game_screen(window):
             if conta_2 >30:
                 conta_2 = 30 
 
-        colisao_poça = pygame.sprite.spritecollide(player_mov, all_poça, True)
-        for poca in colisao_poça:
-            lives+= len(colisao_poça)
+        colisao_poca = pygame.sprite.spritecollide(player_mov, all_poca, True)
+        for poca in colisao_poca:
+            lives+= len(colisao_poca)
             effect.play()
 
 
         all_sprites.update()
         all_madeira.update()
         all_pedras.update()
-        all_poça.update()
+        all_poca.update()
         all_gotas.update()
         
         #tempo
@@ -243,7 +240,7 @@ def game_screen(window):
         all_pedras.draw(window)
         all_madeira.draw(window)
         all_gotas.draw(window)
-        all_poça.draw(window)
+        all_poca.draw(window)
 
         #Sanidade
         if lives <= 5:
