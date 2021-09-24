@@ -69,53 +69,9 @@ class Player(pygame.sprite.Sprite):
     def pick_up (self):
         pass
 
-class Poça(pygame.sprite.Sprite):
-    def __init__(self, img):
-        pygame.sprite.Sprite.__init__(self)
-        self.image = img
-        self.mask = img
-        self.rect = self.image.get_rect()
-        self.rect.x = random.randint(0, 4000)
-        self.rect.y = random.randint(504, 1220)
-        self.speedx = 0
-        self.speedy = 0
-        self.x_i = self.rect.x
-        self.y_i = self.rect.y
-        self.delta_x = self.rect.x - self.x_i
-        self.delta_y = self.rect.y - self.y_i
-        self.max_y = self.rect.y
-        self.max_x = self.rect.x
 
 
-
-    def update (self):
-        self.rect.x += self.speedx 
-        self.rect.y += self.speedy
-        self.delta_y = self.rect.y - self.y_i
-        self.delta_x = self.rect.x - self.x_i
-
-
-        if self.delta_y >= 1180:
-            self.delta_y = 1180
-            self.max_y =  self.delta_y + self.y_i
-            self.rect.y = self.max_y
-
-        if self.delta_y <= -1976:
-            self.delta_y = -1976
-            self.max_y =  self.delta_y + self.y_i
-            self.rect.y = self.max_y
-
-        if self.delta_x >= 800:
-            self.delta_x = 800
-            self.max_x = self.delta_x + self.x_i
-            self.rect.x = self.max_x
-
-        if self.delta_x <= -5538:
-            self.delta_x = -5538
-            self.max_x = self.delta_x + self.x_i
-            self.rect.x = self.max_x
-
-class Madeira(pygame.sprite.Sprite):
+class _Itens(pygame.sprite.Sprite):
     def __init__(self, img):
         pygame.sprite.Sprite.__init__(self)
         self.image = img
@@ -162,54 +118,30 @@ class Madeira(pygame.sprite.Sprite):
             self.rect.x = self.max_x
 
 
-
-class Pedra(pygame.sprite.Sprite):
+class Madeira(_Itens):
     def __init__(self, img):
-        pygame.sprite.Sprite.__init__(self)
-        self.image = img
-        self.mask = img
-        self.rect = self.image.get_rect()
-        self.rect.x = random.randint(-200, 6200)
-        self.rect.y = random.randint(-720, 2480)
-        self.speedx = 0
-        self.speedy = 0
-        self.x_i = self.rect.x
-        self.y_i = self.rect.y
-        self.delta_x = self.rect.x - self.x_i
-        self.delta_y = self.rect.y - self.y_i
-        self.max_y = self.rect.y
-        self.max_x = self.rect.x
+        super().__init__(img)
 
+    def update(self):
+        super().update()
+
+
+
+class Pedra(_Itens):
+    def __init__(self, img):
+        super().__init__(img)
+
+    def update(self):
+        super().update()
+
+
+
+class Poca(_Itens):
+    def __init__(self, img):
+        super().__init__(img)
 
     def update (self):
-        self.rect.x += self.speedx 
-        self.rect.y += self.speedy
-        self.delta_y = self.rect.y - self.y_i
-        self.delta_x = self.rect.x - self.x_i
-
-
-        if self.delta_y >= 1180:
-            self.delta_y = 1180
-            self.max_y =  self.delta_y + self.y_i
-            self.rect.y = self.max_y
-
-        if self.delta_y <= -1976:
-            self.delta_y = -1976
-            self.max_y =  self.delta_y + self.y_i
-            self.rect.y = self.max_y
-
-        if self.delta_x >= 800:
-            self.delta_x = 800
-            self.max_x = self.delta_x + self.x_i
-            self.rect.x = self.max_x
-
-        if self.delta_x <= -5538:
-            self.delta_x = -5538
-            self.max_x = self.delta_x + self.x_i
-            self.rect.x = self.max_x
-
-
-
+        super().update()
 
 
 
